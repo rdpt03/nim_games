@@ -8,6 +8,10 @@ import random
 
 
 def play_marienbad(players):
+    """
+    function to play the game
+    :param players: players list
+    """
     #get game plate
     game_plate = generate_marienbad_game()
 
@@ -84,6 +88,13 @@ def play_marienbad(players):
 
 
 def check_end_game(game_plate : list, players : dict | list, playing : bool):
+    """
+    Function to check the endgame
+    :param game_plate: the game plate
+    :param players: players list
+    :param playing: status of stull playing or not
+    :return: if the game have finished or not
+    """
     if all(x <= 0 for x in game_plate) and playing:
         print("Game finished")
         # find player with most lost parties
@@ -94,11 +105,19 @@ def check_end_game(game_plate : list, players : dict | list, playing : bool):
     else:
         return False
 def generate_marienbad_game():
+    """
+    Function to generate and shuffle a marienbad table
+    :return:
+    """
     playing_sizes = [1, 3, 5, 7]
     random.shuffle(playing_sizes)
     return playing_sizes
 
+
 def main():
+    """
+    Main Function
+    """
     # game vars
     matchsticks = 21
     last_amount_to_remove = 0
